@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ORION-Δ İletim</title>
+  <style>
+    body{
+      margin:0; min-height:100vh; display:grid; place-items:center;
+      background:#05060a; color:#d6ffe8; font-family:system-ui,Segoe UI,Arial;
+      letter-spacing:.3px;
+    }
+    .wrap{
+      width:min(720px,92vw);
+      border:1px solid rgba(214,255,232,.2);
+      border-radius:18px;
+      padding:22px 18px;
+      background:radial-gradient(1200px 600px at 50% -20%, rgba(0,255,170,.10), transparent 55%),
+                 linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow:0 18px 60px rgba(0,0,0,.55);
+    }
+    .top{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; opacity:.9}
+    .badge{
+      font-size:12px; padding:6px 10px; border-radius:999px;
+      border:1px solid rgba(214,255,232,.25);
+      background:rgba(0,0,0,.25);
+    }
+    h1{margin:14px 0 10px; font-size:22px}
+    .msg{
+      white-space:pre-line;
+      line-height:1.55;
+      font-size:16px;
+      color:#eafff4;
+    }
+    .warn{
+      margin-top:14px;
+      padding:12px 12px;
+      border-left:3px solid rgba(0,255,170,.8);
+      background:rgba(0,255,170,.08);
+      border-radius:10px;
+      font-size:14px;
+      opacity:.95;
+    }
+    .glitch{
+      position:relative; display:inline-block;
+      text-shadow: 0 0 12px rgba(0,255,170,.25);
+    }
+    .glitch:before,.glitch:after{
+      content:attr(data-text); position:absolute; left:0; top:0; width:100%;
+      opacity:.35; clip-path: inset(0 0 0 0);
+    }
+    .glitch:before{transform:translate(1px,-1px); color:#7fffd4}
+    .glitch:after{transform:translate(-1px,1px); color:#a8ff7a}
+    .footer{margin-top:14px; font-size:12px; opacity:.65}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="badge">📡 ORION-Δ İLETİM</div>
+      <div class="badge" id="stamp">Bağlantı: aktif</div>
+    </div>
+
+    <h1 class="glitch" data-text="UZAYLI PROTOKOLÜ">UZAYLI PROTOKOLÜ</h1>
+
+    <div class="msg" id="content">
+Sinyaliniz doğrulandı.
+
+Uzaylı olmak istiyorsan:
+Yarın 15:56'da Duygu Cafe'de ol.
+cubuk krakeri unutma miden bulanmasın      
+
+Biz seni buluruz.
+    </div>
+
+    <div class="warn">
+⚠️ Not: Bu iletim kaydedildi. Konum doğrulaması başlatıldı.
+    </div>
+
+    <div class="footer" id="foot"></div>
+  </div>
+
+  <script>
+    const now = new Date();
+    document.getElementById("foot").textContent =
+      "İletim zamanı: " + now.toLocaleString("tr-TR");
+  </script>
+</body>
+</html>
